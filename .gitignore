@@ -1,0 +1,4 @@
+/.idea/
+/cmake-build-debug/
+# os system file
+.DS_Store
