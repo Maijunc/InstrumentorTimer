@@ -3,4 +3,4 @@ project(Visual_benchmarking)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Visual_benchmarking main.cpp)
+add_executable(Visual_benchmarking InstrumentorTimer.h demo.cpp InstrumentorMacro.h)
