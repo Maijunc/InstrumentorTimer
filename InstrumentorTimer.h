@@ -28,10 +28,7 @@ private:
     int m_ProfileCount;
     std::mutex m_Lock;
 public:
-    Instrumentor()
-            :m_CurrentSession(nullptr), m_ProfileCount(0)
-    {
-    }
+    Instrumentor(Instrumentor&) = delete;
 
     //Write the BeginSession for the json file
     void BeginSession(const std::string& name,const std::string& filepath = "result.json")
@@ -88,8 +85,14 @@ public:
 
     static Instrumentor& Get()
     {
+        // only create one instance while the Get Function was called the first time
         static Instrumentor* instance = new Instrumentor();
         return *instance;
+    }
+private:
+    Instrumentor()
+            :m_CurrentSession(nullptr), m_ProfileCount(0)
+    {
     }
 };
 
